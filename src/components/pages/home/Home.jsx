@@ -12,7 +12,7 @@ export const Home = () => {
 }
 
 const SDiv = styled.div`
-  background: url('${window.location.origin}/images/home_bg_img.jpg') no-repeat center center;
+  background: url('images/home_bg_img.jpg') no-repeat center center;
   background-size: cover;
   min-height: 100vh;
 `
