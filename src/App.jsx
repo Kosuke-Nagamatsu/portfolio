@@ -9,7 +9,8 @@ import { NotFound } from './components/pages/NotFound';
 
 export const App = () => {
   return (
-    <BrowserRouter>
+    // basenameにPUBLIC_URLを設定
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Header />
       <MainContainer>
         <Routes>
