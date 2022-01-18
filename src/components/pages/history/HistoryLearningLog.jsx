@@ -1,27 +1,28 @@
 import styled from '@emotion/styled';
 import { Grid } from '@mui/material';
+import { PageTitle } from '../../common/PageTitle';
 import { HistoryContentTitle } from './HistoryContentTitle';
 import { HistoryContentText } from './HistoryContentText';
-import { HistorySkill } from './HistorySkill';
 
-export const HistoryContent = (props) => {
-  const { histories, skills } = props;
+export const HistoryLearningLog = (props) => {
+  const { logs } = props;
+
   return (
     <>
+      <PageTitle>学習記録 2021</PageTitle>
       <Grid container spacing={2}>
         {
-          histories.map((history, index) => (
+          logs.map((log, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <SDiv>
-                <SP><SSpanMonth>{history.month}</SSpanMonth></SP>
-                <HistoryContentTitle>{history.title}</HistoryContentTitle>
-                <HistoryContentText>{history.text}</HistoryContentText>
+                <SP><SSpanMonth>{log.month}</SSpanMonth></SP>
+                <HistoryContentTitle>{log.title}</HistoryContentTitle>
+                <HistoryContentText>{log.text}</HistoryContentText>
               </SDiv>
             </Grid>
           ))
         }
       </Grid>
-      <HistorySkill skills={skills} />
     </>
   );
 }

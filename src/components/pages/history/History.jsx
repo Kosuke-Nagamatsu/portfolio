@@ -1,7 +1,7 @@
-import { PageTitle } from '../../common/PageTitle';
-import { HistoryContent } from './HistoryContent';
+import { HistoryLearningLog } from './HistoryLearningLog';
+import { HistorySkill } from './HistorySkill';
 
-const histories = [
+const logs = [
   {
     month: '5月',
     title: 'DIVE INTO CODE へ入校',
@@ -45,8 +45,8 @@ const skills = [
 export const History = () => {
   return (
     <>
-      <PageTitle>学習記録 2021</PageTitle>
-      <HistoryContent histories={histories} skills={skills} />
+      <HistoryLearningLog logs={logs} />
+      <HistorySkill skills={skills} />
     </>
   );
 }
