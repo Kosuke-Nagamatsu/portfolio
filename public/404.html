@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>永松孝友のポートフォリオ</title>
+
+  <!-- GitHub Pagesで https://kosuke-nagamatsu.github.io/portfolio/history や 〜省略〜/work というURLをアドレスバーに直接入力してアクセスしたり、
+    リロードしたりすると404エラーになる（historyやworkのリンクをクリックする場合はならない）
+    この問題の対処で404.htmlを用意する。 -->
+  <script>
+    const SEGMENT_COUNT = 1;
+
+    const loc = window.location
+    const origin = loc.origin;  //=> 'https://kosuke-nagamatsu.github.io'
+    const path = loc.href.substr(origin.length + 1);  //=> portfolio/〇〇 ※〇〇はhistoryやwork
+    const segments = path.split('/');  //=> ['portfolio', '〇〇']
+    const repo = segments.slice(0, SEGMENT_COUNT).join('/');  //=> 'portfolio'
+    const param = segments.slice(SEGMENT_COUNT).join('/');  //=> '〇〇'
+    const url = origin + '/' + repo + '?p=' + encodeURIComponent(param);
+    // urlへリダイレクト
+    loc.replace(url);
+  </script>
+</head>
+
+<body></body>
+
+</html>

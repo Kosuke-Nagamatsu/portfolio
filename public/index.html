@@ -23,6 +23,21 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
   <title>永松孝友のポートフォリオ</title>
+
+  <!-- GitHub Pages での 404エラー解決用のコード -->
+  <script>
+    (function () {
+      // 現在ページURLのサーチ情報（?で始まる検索クエリ部分）を取得
+      const query = window.location.search;
+
+      if (query.startsWith('?p=')) {
+        const route = decodeURIComponent(query.substr(3));
+        // 現在の履歴を更新
+        window.history.replaceState(null, null, route);
+      }
+    })();
+  </script>
+
 </head>
 
 <body>
