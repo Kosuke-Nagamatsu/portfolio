@@ -18,7 +18,7 @@ const works = [
   },
   {
     name: 'ポートフォリオ',
-    text: 'Reactに初めて触れた際に魅力を感じ、ポートフォリオサイトをReactで作成。モバイルフレンドリー、シンプルで見やすいレイアウトを意識した。',
+    text: 'Reactに初めて触れた際に魅力を感じ、ポートフォリオサイトをReactで作成。スマートフォンを右手で操作しやすいようハンバーガーメニューを右側に配置するなど、モバイルフレンドリーになるよう意識した。',
     url: 'https://kosuke-nagamatsu.github.io/portfolio/',
     github: 'https://github.com/Kosuke-Nagamatsu/portfolio.git',
     image: 'images/work3_img.jpg'
