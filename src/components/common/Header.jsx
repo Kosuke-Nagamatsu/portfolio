@@ -1,17 +1,60 @@
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
+import { Box, SwipeableDrawer, List, ListItem, ListItemText, IconButton } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import { useToggleDrawer } from '../../hooks/useToggleDrawer';
+import { useScreenSize } from '../../hooks/useScreenSize';
 
-export const Header = () => {
+export const Header = (props) => {
+  const { routes } = props;
+  const { isOpen, toggleDrawer } = useToggleDrawer();
+  const { isMobileSize } = useScreenSize();
+
+  // 引き出しメニューのリスト
+  const drawerList = () => (
+    <Box
+      sx={{ width: 200 }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        {routes.map((route, index) => (
+          <ListItem button key={index}>
+            <ListItemText inset={true}><Link to={route.path}>{route.name}</Link></ListItemText>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
   return (
     <SHeader>
-      <nav>
-        <SUl>
-          <SLi><Link to="/">Home</Link></SLi>
-          <SLi><Link to="/history">History</Link></SLi>
-          <SLi><Link to="/work">Work</Link></SLi>
-        </SUl>
-      </nav>
-    </SHeader>
+      {
+        // 600px以下かどうかでレイアウトを変更
+        isMobileSize ? (
+          <SDiv>
+            <IconButton onClick={toggleDrawer(true)} size='large' sx={{ py: 0 }}><MenuIcon /></IconButton>
+            <SwipeableDrawer
+              anchor='right'  //右から表示される
+              open={isOpen}   //trueなら表示
+              onClose={toggleDrawer(false)}
+              onOpen={toggleDrawer(true)}
+            >
+              {drawerList()}
+            </SwipeableDrawer>
+          </SDiv>
+        ) : (
+          <nav>
+            <SUl>
+              {routes.map((route, index) => (
+                <SLi key={index}><Link to={route.path}>{route.name}</Link></SLi>
+              ))}
+            </SUl>
+          </nav>
+        )
+      }
+    </SHeader >
   );
 }
 
@@ -37,3 +80,8 @@ const SLi = styled.li`
     transition-duration: 0.1s;
   }
 `;
+
+const SDiv = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
