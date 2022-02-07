@@ -12,4 +12,7 @@ export const MainContainer = (props) => {
 const SDiv = styled.div`
   padding-top: 3rem;
   padding-bottom: 2rem;
+  @media screen and (max-width: 600px) {
+    padding-top: 3.5rem;
+  }
 `
