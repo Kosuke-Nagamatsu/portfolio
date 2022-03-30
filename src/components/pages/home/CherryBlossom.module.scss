@@ -1,0 +1,44 @@
+$main-color: #ffc0cb;  /* 花びらの色 */
+
+/* 桜の花びらのスタイル */
+.petal {
+  position: absolute;
+  background-color: $main-color;
+  border-radius: 150% 0 150% 0;
+  animation: animate-petal 10s linear;   /* 左から順に、@keyframesで呼び出すアニメーションの名前、開始から終了までの時間、アニメーションの緩急（今回は一定速度） */
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: -14%;
+    left: -10%;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: $main-color;
+    border-radius: 150% 0 150% 0;
+    transform: rotate(15deg);
+  }
+}
+
+/* 花びらが降るアニメーション */
+@keyframes animate-petal {
+  0% {
+    /** 開始時のスタイル **/
+    top: 0;
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    /** 終了時のスタイル **/
+    opacity: 0;
+    top: 100vh;
+    transform: rotate(2000deg);  /* 開始から終了までに2000度回転する(5回転半ほど) */
+  }
+}
