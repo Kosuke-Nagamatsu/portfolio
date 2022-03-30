@@ -24,4 +24,5 @@ export const Home = () => {
 
 const SDiv = styled.div`
   min-height: 100vh;
+  position: relative;
 `
