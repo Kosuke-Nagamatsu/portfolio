@@ -22,6 +22,10 @@ export const HistorySkill = (props) => {
           ))
         }
       </Grid>
+      <PageTitle>資格</PageTitle>
+      <SUl>
+        <li>2022年7月 Ruby Association Certified Ruby Programmer Silver ver. 2.1</li>
+      </SUl>
     </>
   );
 }
@@ -30,5 +34,9 @@ const SDiv = styled.div`
   height: 8rem;
   overflow: scroll;
   border: 1px solid #ccc;
+  padding: 0.8rem;
+`
+const SUl = styled.ul`
+  list-style: inside;
   padding: 0.8rem;
 `
