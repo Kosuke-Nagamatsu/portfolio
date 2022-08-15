@@ -1,15 +1,30 @@
+import { useState } from 'react';
 import styled from '@emotion/styled';
-import { Grid } from '@mui/material';
+import { Grid, Box, BottomNavigation, BottomNavigationAction } from '@mui/material';
 import { PageTitle } from '../../common/PageTitle';
 import { HistoryContentTitle } from './HistoryContentTitle';
 import { HistoryContentText } from './HistoryContentText';
 
 export const HistoryLearningLog = (props) => {
-  const { logs } = props;
+  const { firstYears, secondYears } = props.logs;
+  const [ bottomNavigationValue, setBottomNavigationValue ] = useState(0);
+  const logs = bottomNavigationValue === 0 ? firstYears : secondYears;
 
   return (
     <>
-      <PageTitle>学習記録 2021</PageTitle>
+      <Box>
+        <BottomNavigation
+          showLabels
+          value={bottomNavigationValue}
+          onChange={(event, newValue) => {
+            setBottomNavigationValue(newValue);
+          }}
+        >
+          <BottomNavigationAction label="2021" />
+          <BottomNavigationAction label="2022" />
+        </BottomNavigation>
+      </Box>
+      <PageTitle>学習記録</PageTitle>
       <Grid container spacing={2}>
         {
           logs.map((log, index) => (
