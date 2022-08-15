@@ -9,7 +9,7 @@ export const Footer = () => {
 }
 
 const SFooter = styled.footer`
-  background-color: #888;
+  background-color: #fff;
   text-align: center;
   position: fixed;
   bottom: 0;
@@ -20,5 +20,5 @@ const SFooter = styled.footer`
 
 const SSmall = styled.small`
   font-size: 0.6rem;
-  color: #fff;
+  color: #c05805;
 `

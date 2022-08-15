@@ -34,7 +34,7 @@ const SP = styled.p`
   font-size: 1.25rem;
   line-height: 1.7;
   letter-spacing: 0.1em;
-  background-color: rgba(255, 192, 138, 0.1);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 2rem;
   white-space: pre-line;
   padding: 2.5rem;

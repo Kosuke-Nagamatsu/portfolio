@@ -23,7 +23,6 @@ const SH1 = styled.h1`
   font-size: 3.2rem;
   font-weight: 400;
   font-family: luxus-brut, cursive;
-  font-style: italic;
   @media screen and (max-width: 900px) {
     font-size: 2.6rem;
   }
